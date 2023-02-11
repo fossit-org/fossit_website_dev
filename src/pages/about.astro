@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Intro from '../components/Intro.astro';
+import Nav from '../components/Nav.astro'
+import Second from '../components/Second.astro'
+---
+
+<Layout title="FOSSIT | Coming Soon">
+	<Nav 
+	logo="FOSSIT"
+	about="ABOUT"
+	projects="PROJECTS"
+	learn="LEARN"
+	/>
+	<Intro
+		head = "ABOUT"
+		desc = "This is OPEN SOURCE SOFTWARE"
+		abc = "<Scroll Down />"
+	/>
+    <Second 
+        img = "./public/codin_less.jpg"
+        alt = "man_coding"
+        header = "What We Do"
+        desc = "Lorem ipsum dolor sit amet consectetur adipisicing elit.Assumenda cupiditate fugit accusamus optio facilis a. Corporis cum voluptatum vel recusandae veniam quaerat laborum ea."
+    />
+</Layout>
