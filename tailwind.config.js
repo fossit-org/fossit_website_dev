@@ -1,61 +1,90 @@
 /** @type {import('tailwindcss').Config} */
-import { nextui } from "@nextui-org/react";
 module.exports = {
+  darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/components/(button|snippet|code|input).js",
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx}",
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
       },
     },
-  },
-  plugins: [
-    nextui({
-      layout: {
-        borderRadius: "0px",
-      },
-      themes: {
-        light: {
-          colors: {
-            primary: "#1F0322",
-            secondary: "#AEA79F",
-            accent: "#b4f07f",
-            error: "#FF0119",
-            success: "#1EFF21",
-            warning: "#F0C83B",
-            info: "#fff",
-            onPrimary: "#c676be",
-            onSecondary: "#77216F",
-            onAccent: "#520a4b",
-            onError: "#000000",
-            onSuccess: "#000000",
-            onWarning: "#000000",
-            onInfo: "#000000",
-            border: "#000000",
-            accentHover: "#000000",
-            primaryHover: "#000000",
-            secondaryHover: "#000000",
-            errorHover: "#000000",
-            successHover: "#000000",
-            warningHover: "#000000",
-            infoHover: "#000000",
-            onPrimaryHover: "#000000",
-            onSecondaryHover: "#000000",
-            onSurfaceHover: "#000000",
-            onErrorHover: "#000000",
-            onSuccessHover: "#000000",
-            onWarningHover: "#000000",
-            onInfoHover: "#000000",
-          },
+    extend: {
+      colors: {
+        border: "var(--border)",
+        input: "var(--input)",
+        ring: "var(--ring)",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        primary: {
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
+        },
+        secondary: {
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
+        },
+        destructive: {
+          DEFAULT: "var(--destructive)",
+          foreground: "var(--destructive-foreground)",
+        },
+        muted: {
+          DEFAULT: "var(--muted)",
+          foreground: "var(--muted-foreground)",
+        },
+        accent: {
+          DEFAULT: "var(--accent)",
+          foreground: "var(--accent-foreground)",
+        },
+        popover: {
+          DEFAULT: "var(--popover)",
+          foreground: "var(--popover-foreground)",
+        },
+        card: {
+          DEFAULT: "var(--card)",
+          foreground: "var(--card-foreground)",
         },
       },
-    }),
-  ],
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
+    },
+    fontSize: {
+      "7xl": "15.981rem",
+      "6xl": "11.305rem",
+      "5xl": "7.999rem",
+      "4xl": "5.653rem",
+      "3xl": "3.998rem",
+      "2xl": "2.827rem",
+      xl: "1.999rem",
+      lg: "1.414rem",
+      base: "18.0px",
+      sm: "0.707rem",
+      xs: "0.5rem",
+      "2xs": "0.354rem",
+    },
+  },
+  plugins: [require("tailwindcss-animate")],
 };
