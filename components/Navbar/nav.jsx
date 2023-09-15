@@ -1,11 +1,11 @@
 "use client";
-import { Red_Hat_Display } from "next/font/google";
+import { Cutive_Mono } from "next/font/google";
 import { useState } from "react";
 import { AiFillHome } from "react-icons/ai";
 import { BiSolidBookAlt } from "react-icons/bi";
 import { AnimatePresence, animate, easeIn, motion } from "framer-motion";
 import Link from "next/link";
-const cutive = Red_Hat_Display({ subsets: ["latin"], weight: ["400"] });
+const cutive = Cutive_Mono({ subsets: ["latin"], weight: ["400"] });
 
 export default function Nav() {
   const [active, setActive] = useState(true);
@@ -56,7 +56,7 @@ export default function Nav() {
                 x: -12,
                 transition: { ease: easeIn, duration: 0.25 },
               }}
-              className={`${cutive.className} text-2xl font-bold`}>
+              className={`${cutive.className} text-xl font-bold`}>
               FOSSIT
             </motion.h1>
           )}
@@ -66,10 +66,11 @@ export default function Nav() {
         {items.map((item, index) => (
           <Link key={index} href={item.link}>
             <li
-              className={`flex flex-col text-center justify-center items-center transition-all duration-300 ${
-                active ? "text-xl" : "text-2xl"
-              }`}>
-              <span className="text-accent text-center text-4xl">
+              className={`flex flex-col md:flex-row md:gap-4 text-center md:text-start justify-center items-center`}>
+              <span
+                className={`text-accent text-center transition-all duration-300 ${
+                  active ? "text-base" : "text-lg"
+                } `}>
                 {item.icon}
               </span>
               <AnimatePresence>
@@ -77,7 +78,7 @@ export default function Nav() {
                   <motion.span
                     animate={{ x: 0 }}
                     exit={{ x: -5, opacity: 0, transition: { ease: easeIn } }}
-                    className={`text-xs md:text-base font-medium`}>
+                    className={`text-base md:text-base font-medium`}>
                     {item.name}
                   </motion.span>
                 )}
